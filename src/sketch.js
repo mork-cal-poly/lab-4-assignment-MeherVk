@@ -9,8 +9,10 @@ function setup() {
 
 function draw() {
   background(220);
-
-    
+  
+  //Calling Lady
+  drawEntity(-40,30, 1.2);
+  
   //Calling Whale
   drawWhale(400,250);
 
@@ -66,3 +68,99 @@ function drawWhale(Wx,Wy){
    pop(); 
 
 }
+
+//----------------------------------
+
+function drawEntity(x,y,s){
+  push();
+    scale(s);
+    translate(x,y);
+    noStroke(); 
+    
+    
+    //BackHair 
+    push();
+    fill(56,32, 17);
+    ellipse(280, 120, 100, 80);
+    pop();
+  
+    
+  //LeftHair
+    push();
+    fill(52, 32, 21);
+    rotate(-PI/4)
+    ellipse(70, 265, 100, 80);
+    pop();
+     
+  
+  //RightHair
+    push()
+    noStroke();
+    fill(76, 48, 31);
+    rotate(-0.5)
+    ellipse(180, 260, 80, 100);
+    pop();
+    
+  //Sleeves 
+    fill(161, 181, 178);
+    rect(150, 390, 40, 80)
+    
+    rect(340, 390, 40, 80)
+    
+  
+  //Arm Puffs 
+    fill(118, 147, 141);
+    circle(180, 360, 100)
+    
+    circle(350, 360, 100)
+  
+  //Chest
+    fill(118, 147, 141);
+    rect(190, 318, 150, 153);
+    
+  //Neck
+    fill(161, 181, 178);
+    rect(225, 250, 75, 85);
+  
+  
+  //Neck Frills 
+    fill(225, 209, 204)
+    triangle(180, 280, 228, 250, 246, 280);
+    triangle(220, 320, 228, 250, 260, 280);
+    triangle(300, 320, 228, 250, 290, 250);
+    triangle(350, 300, 238, 260, 290, 230);
+    triangle(350, 250, 258, 260, 290, 230);
+    
+  
+  //Main Face 
+   fill(144,101,75);
+    noStroke();
+    ellipse(250, 200, 100, 150);
+    
+  // //Ear
+  //   translate (width/2, height/2);
+  //   rotate(0.2)
+  //   ellipse(35, -112, 25, 40)
+  
+    //eyes
+    fill(170, 217, 202);
+    circle(275, 200, 10);
+    circle(220, 200, 10);
+    
+    //eyebrows
+    fill(52, 32, 21);
+    rect(210, 180, 30, 5);
+    rect(260, 180, 30, 5);
+    
+    //nose 
+    rect(245, 210, 3, 25);
+    
+    //mouth 
+    fill(171, 68, 70);
+    rect(157+80, 253, 25, 7)
+    
+    fill(145, 63, 70);
+    rect(153+80, 248, 30, 8)
+  
+  pop();
+  }
