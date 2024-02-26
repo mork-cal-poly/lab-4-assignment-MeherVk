@@ -15,7 +15,7 @@ function draw() {
   //Calling Lady
   drawEntity(-40,30, 1.2);
   
-  drawSeaotter(0,0,.5);
+  drawSeaotter(265,375,.02);
 
   //Calling Whale
   drawWhale(400,250);
