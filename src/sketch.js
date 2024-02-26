@@ -1,3 +1,5 @@
+var a = 0;
+  
 function setup() {
   // These lines are fitting our canvas
   // where we want in the DOM
@@ -20,6 +22,8 @@ function draw() {
 function drawWhale(Wx,Wy){
   push();
   translate(Wx,Wy);
+
+  rotate(a);
   
      noStroke();
     fill(176, 199, 240);
@@ -64,6 +68,8 @@ function drawWhale(Wx,Wy){
     //face 
     fill(2, 42, 56);
     ellipse(-210, -310, 50, 2);
+    
+    a = a - 0.01
     
    pop(); 
 
@@ -164,3 +170,4 @@ function drawEntity(x,y,s){
   
   pop();
   }
+
