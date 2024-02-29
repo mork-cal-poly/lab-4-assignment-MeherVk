@@ -1,5 +1,15 @@
+// let pic;
 var a = 0;
-  
+let Wx = 0;
+let bC = 100;
+
+let byeLady = false; 
+let yayFish = true; 
+
+// function preload() {
+//   pic = loadImage('Ocean.png');
+// }
+
 function setup() {
   // These lines are fitting our canvas
   // where we want in the DOM
@@ -7,18 +17,34 @@ function setup() {
   // easier
   let myCanvas = createCanvas(600, 600);
   myCanvas.parent("canvas-parent");
+
+
 }
 
 function draw() {
-  background(220);
+  background(bC);
   
   //Calling Lady
+  if (byeLady==false)
   drawEntity(-40,30, 1.2);
   
   drawSeaotter(265,375,.02);
 
   //Calling Whale
   drawWhale(400,250);
+
+  //Making Background change color and Lady disappear
+  if (a < -PI/2){
+    bC = '#1247A8';
+    byeLady = true; 
+    yayFish = false
+  }
+  
+  //calling fish
+    if(yayFish==false) 
+    drawFishy(400,250);
+
+
 
 }
 function drawWhale(Wx,Wy){
@@ -227,6 +253,31 @@ function drawEntity(x,y,s){
     ellipse(-200,-150,50,25); //nose
     
     pop();
-    
-    pop();
   }
+    //Drawing Fish 
+    function drawFishy(fX,fY) {
+      push();
+            fill(232, 151, 168);
+            noStroke();
+            translate(fX,fY);
+            ellipse(56, 46, 105, 35);
+            //3,1,2
+            //face
+            triangle(91, 60, 91, 32, 119, 45);
+            //Top Tail
+            triangle(-25, 45, -33, 10, 9, 45);
+            //Bottom Tail 
+            triangle(-28,80, -25, 57, 9, 45);
+            //Fin
+             triangle(30,80, 43, 57, 77, 45);
+            
+            fill(255);
+            circle(90,45, 20);
+            
+            fill(0);
+            circle(90,45, 5);
+      pop();
+      
+      }
+   
+  
