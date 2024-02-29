@@ -1,14 +1,12 @@
-// let pic;
+
 var a = 0;
 let Wx = 0;
 let bC = 100;
 
 let byeLady = false; 
+let LoseBackground = false;
 let yayFish = true; 
 
-// function preload() {
-//   pic = loadImage('Ocean.png');
-// }
 
 function setup() {
   // These lines are fitting our canvas
@@ -23,6 +21,13 @@ function setup() {
 
 function draw() {
   background(bC);
+    
+  //Calling Abstract Background Squares that appears in the 1st part of the animation 
+  if(LoseBackground==false)
+  drawBackground(200,400);
+   
+  fill(0,0,205, 90);
+  rect(0, 0, 800, 800);
   
   //Calling Lady
   if (byeLady==false)
@@ -33,20 +38,39 @@ function draw() {
   //Calling Whale
   drawWhale(400,250);
 
-  //Making Background change color and Lady disappear
+  //calling fish
+  if(yayFish==false) 
+  drawFishy(400,250);
+
+  //Making Background change color, fish appear & Lady + abstract squares disappear
   if (a < -PI/2){
     bC = '#1247A8';
     byeLady = true; 
+    LoseBackground = true;
     yayFish = false
   }
   
-  //calling fish
-    if(yayFish==false) 
-    drawFishy(400,250);
-
-
-
 }
+
+//-------------------------------------
+
+ //The abstract background shapes
+function drawBackground(x, y) {
+  push();
+    translate(x, y);
+    noStroke();
+    fill(94,242,205, 200)
+    rect(-90, -200, 405, 205);
+   
+    fill(175, 239,245, 100)
+    rect(60, -300, 205, 405);
+   
+ pop();
+ }
+
+//-------------------------------------
+
+//The whale creature 
 function drawWhale(Wx,Wy){
   push();
   translate(Wx,Wy);
@@ -105,6 +129,7 @@ function drawWhale(Wx,Wy){
 
 //----------------------------------
 
+//The Lady 
 function drawEntity(x,y,s){
   push();
     scale(s);
@@ -171,11 +196,6 @@ function drawEntity(x,y,s){
     noStroke();
     ellipse(250, 200, 100, 150);
     
-  // //Ear
-  //   translate (width/2, height/2);
-  //   rotate(0.2)
-  //   ellipse(35, -112, 25, 40)
-  
     //eyes
     fill(170, 217, 202);
     circle(275, 200, 10);
@@ -254,7 +274,10 @@ function drawEntity(x,y,s){
     
     pop();
   }
-    //Drawing Fish 
+
+  //-------------------------------------
+  //The Fish 
+
     function drawFishy(fX,fY) {
       push();
             fill(232, 151, 168);
